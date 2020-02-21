@@ -1,9 +1,58 @@
 {
-  "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
-  ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
-  ],
-  "profile": { "name": "typicode" }
+    "series": [
+        {
+            "Name": "r1800aaa220000ely ",
+            "Flag": "K",
+            "NAICS": "22",
+            "Item ": "XD180000",
+            "Topic": "Utilities",
+            "SubTopic": "Excludes government owned utilities.",
+            "Item Type": "EST",
+            "Data Type": "r",
+            "Form": "REV602",
+            "Tbl": "Table1",
+            "View": "Pub",
+            "Last_updated": "1/21/18 11:50",
+            "val2018A1": "600,624.000",
+            "val2017A1": "580,243.000",
+            "val2016A1": "572,358.000",
+            "val2015A1": "577,542.000"
+        },
+        {
+            "Name": "r1800aaa220000ely ",
+            "Flag": "K",
+            "NAICS": "22",
+            "Item ": "XD180000",
+            "Topic": "Utilities",
+            "SubTopic": "Excludes government owned utilities.",
+            "Item Type": "YY",
+            "Data Type": "r",
+            "Form": "REV602",
+            "Tbl": "Table1",
+            "View": "Pub",
+            "Last_updated": "10/7/18 23:53",
+            "val2018A1": "5.600",
+            "val2017A1": "5.900",
+            "val2016A1": "4.800",
+            "val2015A1": "4.900"
+        },
+        {
+            "Name": "r1800aaa220000ely ",
+            "Flag": "K",
+            "NAICS": "22",
+            "Item ": "XD180000",
+            "Topic": "Utilities",
+            "SubTopic": "Excludes government owned utilities.",
+            "Item Type": "CV",
+            "Data Type": "r",
+            "Form": "EXP772",
+            "Tbl": "Table1",
+            "View": "Pub",
+            "Last_updated": "8/24/18 0:49",
+            "val2018A1": "0.400",
+            "val2017A1": "0.500",
+            "val2016A1": "0.600",
+            "val2015A1": "0.200"
+        }
+    ]
 }
