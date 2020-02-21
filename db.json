@@ -310,40 +310,6 @@
             "val2017A1": "0.620",
             "val2016A1": "0.680",
             "val2015A1": "0.700"
-        },
-        {
-            "Name": "r1800tae221111ely",
-            "Flag": "K",
-            "NAICS": "221112",
-            "Item ": "XD180000",
-            "Topic": "Fossil Fuel Electric Power Generation",
-            "Item Type": "SE",
-            "Data Type": "r",
-            "Form": "REV602",
-            "Tbl": "Table2",
-            "View": "Pub",
-            "Last_updated": "1/21/18 11:50",
-            "val2018A1": "0.300",
-            "val2017A1": "0.240",
-            "val2016A1": "0.340",
-            "val2015A1": "0.300"
-        },
-        {
-            "Name": "r1800tae221111ely",
-            "Flag": "K",
-            "NAICS": "221112",
-            "Item ": "XD180000",
-            "Topic": "Fossil Fuel Electric Power Generation",
-            "Item Type": "IMP",
-            "Data Type": "r",
-            "Form": "REV602",
-            "Tbl": "Table2",
-            "View": "Pub",
-            "Last_updated": "10/7/18 23:53",
-            "val2018A1": "7.200",
-            "val2017A1": "4.700",
-            "val2016A1": "4.600",
-            "val2015A1": "4.500"
         }
     ]
 }
