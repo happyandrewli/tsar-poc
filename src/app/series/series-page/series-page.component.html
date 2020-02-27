@@ -1,0 +1,112 @@
+<nz-layout>
+    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+        <ul nz-menu nzMode="inline" nzTheme="dark" [nzInlineCollapsed]="isCollapsed">
+            <li nz-menu-item nzPlacement="right">
+                <i nz-icon nzType="dashboard"></i>
+                <span>Dashboard</span>
+            </li>
+            <li nz-menu-item nzPlacement="right">
+                <i nz-icon nzType="profile"></i>
+                <span>Profile</span>
+            </li>
+            <li nz-menu-item nzPlacement="right">
+                <i nz-icon nzType="mail"></i>
+                <span>Mail</span>
+            </li>
+            <li nz-menu-item nzPlacement="right">
+                <i nz-icon nzType="setting"></i>
+                <span>Setting</span>
+            </li>
+        </ul>
+    </nz-sider>
+    <nz-layout>
+        <nz-header>
+            <!-- <nz-page-header>
+            <nz-page-header-title> -->
+            <div nz-row nzType="flex" nzJustify="space-between">
+                <div nz-col>
+                    <i nz-icon class="trigger" [nzType]="isCollapsed? 'menu-unfold': 'menu-fold'"
+                        (click)="toggleCollapsed()"></i>
+                </div>
+                <div nz-col>
+                    <steps-favorites-page></steps-favorites-page>
+                    <button nz-button>Logout</button>
+                </div>
+            </div>
+
+
+            <!-- TSAR POC
+            </nz-page-header-title>
+
+            <nz-page-header-extra>
+                <button nz-button>Logout</button>
+            </nz-page-header-extra>
+        </nz-page-header> -->
+        </nz-header>
+
+        <nz-content style="min-width: 1080px">
+            <nz-breadcrumb>
+                <nz-breadcrumb-item>StEPS</nz-breadcrumb-item>
+                <nz-breadcrumb-item>TSAR</nz-breadcrumb-item>
+            </nz-breadcrumb>
+            <section class="inner-content">
+                <app-filters></app-filters>
+                <nz-divider></nz-divider>
+                <app-search></app-search>
+                <div style="display: flex; justify-content: center; width: 980px">
+                    <button nz-button nzType="primary" nzSize="large" (click)="search()">Search</button>
+                </div>
+
+                <nz-tabset>
+                    <nz-tab [nzTitle]="titleTemplate1">
+                        <ng-template #titleTemplate1><i nz-icon nzType="table"></i>Table View</ng-template>
+                        <div nz-row nzType="flex" nzJustify="space-between">
+                            <div nz-col>
+                                <div nz-row>
+                                    <h3 nz-title style="display: inline">{{count$ | async}} Results </h3>
+                                    <span nz-text nzType="secondary">Matching Criteria</span>
+                                </div>
+                            </div>
+                            <div nz-col>
+                                <nz-button-group nzSize="small" nzShape="round">
+                                    <button nz-button (click)="exportSeriesTable('csv')" >
+                                        <i nz-icon nzType="download"></i>Download CSV
+                                    </button>
+                                    <button nz-button (click)="exportSeriesTable('xlsx')">
+                                        <i nz-icon nzType="download"></i>Download Excel
+                                    </button>
+                                </nz-button-group>
+                            </div>
+                        </div>
+                        
+
+                        <nz-table #seriesTable [nzData]="seriesList$ | async" nzSize="small" id="seriesTable">
+                            <thead>
+                                <tr>
+                                    <th>Series</th>
+                                    <!-- <th *ngFor="let series of seriesTable.data[0].series">{{series.name}}</th> -->
+                                    <th>2014A1</th>
+                                    <th>2015A1</th>
+                                    <th>2016A1</th>
+                                    <th>2017A1</th>
+                                    <th>2018A1</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let series of seriesTable.data">
+                                    <td>{{series.name}}</td>
+                                    <td *ngFor="let series of series.series">{{series.value}}</td>
+                                </tr>
+                            </tbody>
+                        </nz-table>
+                    </nz-tab>
+                    <nz-tab [nzTitle]="titleTemplate2">
+                        <ng-template #titleTemplate2><i nz-icon nzType="area-chart"></i>Graph View</ng-template>
+                        <steps-series-graph [series]="seriesList$ | async"></steps-series-graph>
+                    </nz-tab>
+                </nz-tabset>
+            </section>
+        </nz-content>
+        <nz-footer>US Census Bureau @2019 TSAR POC Implement by Angular v0.0.1</nz-footer>
+    </nz-layout>
+</nz-layout>

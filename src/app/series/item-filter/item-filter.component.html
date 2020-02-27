@@ -1,0 +1,25 @@
+<button nz-button nz-popover [nzPopoverContent]="itemTemplate" nzPopoverTrigger="click"
+    nzPopoverPlacement="bottomLeft" [(nzVisible)]="visible" (nzVisibleChange)="close()"
+    nzShape="round">Items</button>
+
+<ng-template #itemTemplate>
+    <nz-checkbox-wrapper style="width: 260px;">
+        <div nz-row>
+            <div nz-col nzSpan="8" *ngFor="let item of items">
+                <label nz-checkbox nzValue="item.value" [(ngModel)]="item.checked">{{item.label}}</label>
+            </div>
+        </div>
+    </nz-checkbox-wrapper>
+    <nz-divider></nz-divider>
+    <button nz-button nzType="link">Clear</button>
+    <button nz-button nzType="primary" (click)="save()">Save</button>
+</ng-template>
+<!--
+<nz-select formControlName="item" nzPlaceHolder="Please select item(s)" style="width: 280px;" nzMode="multiple"
+    [nzMaxTagPlaceholder]="tagPlaceHolder" [nzMaxTagCount]="1">
+    <nz-option [nzLabel]="'789934'" [nzValue]="'789934'"></nz-option>
+    <nz-option [nzLabel]="'789935'" [nzValue]="'789935'"></nz-option>
+    <nz-option [nzLabel]="'789936'" [nzValue]="'789936'"></nz-option>
+</nz-select>
+<ng-template #tagPlaceHolder let-selectedList> and {{selectedList.length}} more selected</ng-template>
+-->

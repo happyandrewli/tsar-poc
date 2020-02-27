@@ -1,0 +1,25 @@
+<nz-button-group nzSize="small">
+    <button nz-button (click)="downloadGraph('jpg')" >
+        <i nz-icon nzType="download"></i>Download JPG
+    </button>
+    <button nz-button (click)="downloadGraph('png')">
+        <i nz-icon nzType="download"></i>Download PNG
+    </button>
+</nz-button-group>
+<div #screen style="margin: 20px">
+    <ngx-charts-line-chart [view]="view" [results]="series" [gradient]="gradient" 
+        [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" 
+        [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [curve]="curve"
+        [yScaleMax]="100000">
+    </ngx-charts-line-chart>
+</div>
+<!-- <div id="download">
+    <img #canvas>
+    <a #downloadLink></a>
+</div> -->
+<!-- 
+<nz-card>
+    <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"
+        style="width: 100%; height: 400px; display: block;" [(update)]="updateHighchart"></highcharts-chart>
+</nz-card> -->
