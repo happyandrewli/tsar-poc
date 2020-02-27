@@ -1,0 +1,101 @@
+name,flag,naics,item,topic,item_type,data_type,form,tbl,view,last_updated,val2018a1,val2017a1,val2016a1,val2015a1
+r1800aaa220000ely,K,22,XD180000,Utilities,EST,r,REV602,Table1,Pub,1/21/2018 11:50,"600,624.000","580,243.000","572,358.000","577,542.000"
+r1800aaa220000ely,K,22,XD180000,Utilities,YY,r,REV602,Table1,Pub,10/7/2018 23:53,5.600,5.900,4.800,4.900
+r1800aaa220000ely,K,22,XD180000,Utilities,CV,r,EXP772,Table1,Pub,8/24/2018 0:49,0.400,0.500,0.600,0.200
+r1800aaa220000ely,K,22,XD180000,Utilities,SE,r,REV602,Table1,Priv,1/8/2019 6:37,0.100,0.200,0.500,0.400
+r1800aaa220000ely,K,22,XD180000,Utilities,IMP,r,REV602,Table1,Priv,10/7/2019 19:35,20.000,20.000,10.000,10.000
+r1800aae221100ely,M,2211,XD180000,"Electric Power Generation, Transmission and Distribution",EST,r,BV334,Table2,Pub,8/3/2018 15:01,"474,132.000","464,934.000","462,302.000","464,561.000"
+r1800aae221100ely,M,2211,X550100,"Electric Power Generation, Transmission and Distribution",YY,r,REV602,Table2,Pub,1/21/2018 11:50,3.200,3.500,4.400,4.200
+r1800aae221100ely,M,2211,X550200,"Electric Power Generation, Transmission and Distribution",CV,r,REV602,Table2,Pub,10/7/2018 23:53,0.300,0.300,0.400,0.400
+r1800aae221100ely,M,2211,X550300,"Electric Power Generation, Transmission and Distribution",SE,r,EXP772,Table2,Pub,8/24/2018 0:49,0.200,0.200,0.200,3.000
+r1800aae221100ely,M,2211,X550400,"Electric Power Generation, Transmission and Distribution",IMP,r,REV602,Table2,Priv,1/8/2019 6:37,14.800,14.400,12.900,9.900
+r5505aae221100ely,R,2211,X550500,"Electric Power Generation, Transmission and Distribution",EST,r,REV602,Table1,Priv,10/7/2019 19:35,"173,702.000","166,813.000","184,649.000","182,270.000"
+r5505aae221100ely,R,2211,XD575000,"Electric Power Generation, Transmission and Distribution",YY,r,BV334,Table1,Pub,8/3/2018 15:01,4.200,4.400,4.600,4.300
+r5505aae221100ely,R,2211,XD575100,"Electric Power Generation, Transmission and Distribution",CV,r,REV602,Table1,Pub,1/21/2018 11:50,0.500,0.600,0.700,0.600
+r5505aae221100ely,R,221111,XD180000,Hydroelectric Power Generation,SE,r,REV602,Table1,Pub,10/7/2018 23:53,0.200,0.220,0.240,0.280
+r5505aae221100ely,R,221111,XD180000,Hydroelectric Power Generation,IMP,r,EXP772,Table1,Pub,8/24/2018 0:49,21.900,25.500,26.300,27.200
+r1800tae221111ely,K,221111,XD180000,Hydroelectric Power Generation,EST,r,REV602,Table2,Priv,1/8/2019 6:37,"3,732.000","3,749.000","3,246.000","3,166.000"
+r1800tae221111ely,K,221111,XD180000,Hydroelectric Power Generation,YY,r,REV602,Table2,Priv,10/7/2019 19:35,5.300,5.800,5.600,5.400
+r1800tae221111ely,K,221112,XD180000,Fossil Fuel Electric Power Generation,CV,r,BV334,Table2,Pub,8/3/2018 15:01,0.600,0.620,0.680,0.700
+r1800tae221111ely,K,221112,XD180000,Fossil Fuel Electric Power Generation,SE,r,REV602,Table2,Pub,1/21/2018 11:50,0.300,0.240,0.340,0.300
+r1800tae221111ely,K,221112,XD180000,Fossil Fuel Electric Power Generation,IMP,r,REV602,Table2,Pub,10/7/2018 23:53,7.200,4.700,4.600,4.500
+r1800aan221112ely,M,221112,XD180000,Fossil Fuel Electric Power Generation,EST,r,EXP772,Table2,Pub,8/24/2018 0:49,"28,006.000","27,705.000","28,260.000","29,586.000"
+r1800aan221112ely,M,221113,XD180000,Nuclear Electric Power Generation,YY,r,REV602,Table2,Priv,1/8/2019 6:37,5.600,5.900,4.800,4.900
+r1800aan221112ely,M,221113,XD180000,Nuclear Electric Power Generation,CV,r,REV602,Table2,Priv,10/7/2019 19:35,0.400,0.500,0.600,0.200
+r1800aan221112ely,M,221113,XD180000,Nuclear Electric Power Generation,SE,r,BV334,Table2,Pub,8/3/2018 15:01,0.100,0.200,0.500,0.400
+r1800aan221112ely,M,221113,XD180000,Nuclear Electric Power Generation,IMP,r,REV602,Table2,Pub,1/21/2018 11:50,21.000,21.000,25.000,25.000
+r1800aaa221114ely,R,221114,XD180000,Solar Electric Power Generation,EST,r,REV602,Table1,Pub,10/7/2018 23:53,"2,424.000","1,947.000","1,227.000",914.000
+r1800aaa221114ely,R,221114,XD180000,Solar Electric Power Generation,YY,r,EXP772,Table1,Pub,8/24/2018 0:49,1.000,1.000,1.000,1.000
+r1800aaa221114ely,R,221114,XD180000,Solar Electric Power Generation,CV,r,REV602,Table1,Priv,1/8/2019 6:37,5.000,4.000,5.000,5.000
+r1800aaa221114ely,R,221114,XD180000,Solar Electric Power Generation,SE,r,REV602,Table1,Priv,10/7/2019 19:35,0.500,0.580,0.600,0.640
+r1800aaa221114ely,R,221115,XD180000,Wind Electric Power Generation,IMP,r,BV334,Table1,Pub,8/3/2018 15:01,11.000,9.000,11.000,11.000
+r1800aae221115ely,K,221115,XD180000,Wind Electric Power Generation,EST,r,REV602,Table2,Pub,1/21/2018 11:50,"8,261.000","7,872.000","6,812.000","6,527.000"
+r1800aae221115ely,K,221115,XD180000,Wind Electric Power Generation,YY,r,REV602,Table2,Pub,10/7/2018 23:53,17.600,18.300,6.300,20.300
+r1800aan221115ely,K,221115,XD180000,Wind Electric Power Generation,CV,r,EXP772,Table2,Pub,8/24/2018 0:49,0.560,0.640,0.720,0.700
+r1800aae221115ely,K,221116,XD180000,Geothermal Electric Power Generation,SE,r,REV602,Table2,Priv,1/8/2019 6:37,4.100,0.600,0.300,0.500
+r1800aae221115ely,K,221116,XD180000,Geothermal Electric Power Generation,IMP,r,REV602,Table2,Priv,10/7/2019 19:35,39.000,56.000,60.000,64.000
+r1800tae221116ely,M,221116,XD180000,Geothermal Electric Power Generation,EST,r,BV334,Table1,Pub,8/3/2018 15:01,860.000,887.000,802.000,759.000
+r1800tae221116ely,M,221116,XD180000,Geothermal Electric Power Generation,YY,r,REV602,Table1,Pub,1/21/2018 11:50,15.000,11.000,12.000,11.000
+r1800tae221116ely,M,221117,XD180000,Biomass Electric Power Generation,CV,r,REV602,Table1,Pub,10/7/2018 23:53,0.900,0.980,1.500,1.000
+r1800tae221116ely,M,221117,XD180000,Biomass Electric Power Generation,SE,r,EXP772,Table1,Pub,8/24/2018 0:49,5.000,4.000,5.000,5.000
+r1800tae221116ely,M,221117,XD180000,Biomass Electric Power Generation,IMP,r,REV602,Table1,Priv,1/8/2019 6:37,46.000,46.000,50.000,52.000
+r1800aan221117ely,R,221117,XD180000,Biomass Electric Power Generation,EST,r,REV602,Table1,Priv,10/7/2019 19:35,"13,877.000","13,184.000","12,980.000","11,751.000"
+r1800aan221117ely,R,221118,XD180000,Other Electric Power Generation,YY,r,BV334,Table1,Pub,8/3/2018 15:01,17.000,84.000,73.000,68.000
+r1800aan221117ely,R,221118,XD180000,Other Electric Power Generation,CV,r,REV602,Table1,Pub,1/21/2018 11:50,86.000,83.000,72.000,67.000
+r1800aan221117ely,R,221118,XD180000,Other Electric Power Generation,SE,r,REV602,Table1,Pub,10/7/2018 23:53,1.000,3.000,2.000,2.000
+r1800aan221117ely,R,221118,XD180000,Other Electric Power Generation,IMP,r,EXP772,Table1,Pub,8/24/2018 0:49,11.000,9.000,11.000,11.000
+r1800aaa221121ely,K,221121,XD180000,Electric Bulk Power Transmission and Control,EST,r,REV602,Table2,Priv,1/8/2019 6:37,"13,994.000","13,305.000","13,125.000","11,894.000"
+r1800aaa221121ely,K,221121,XD180000,Electric Bulk Power Transmission and Control,YY,r,REV602,Table2,Priv,10/7/2019 19:35,5.600,5.900,4.800,4.900
+r1800aaa221121ely,K,221121,XD180000,Electric Bulk Power Transmission and Control,CV,r,BV334,Table2,Pub,8/3/2018 15:01,0.400,0.500,0.600,0.200
+r1800aaa221121ely,K,221121,XD180000,Electric Bulk Power Transmission and Control,SE,r,REV602,Table2,Pub,1/21/2018 11:50,0.100,0.200,0.500,0.400
+r1800aaa221121ely,K,221122,XD180000,Electric Power Distribution,IMP,r,REV602,Table2,Pub,10/7/2018 23:53,20.000,20.000,10.000,10.000
+r1800aae221122ely,M,221122,XD180000,Electric Power Distribution,EST,r,EXP772,Table2,Pub,8/24/2018 0:49,"339,574.000","333,974.000","329,085.000","327,630.000"
+r1800aae221122ely,M,221122,XD180000,Electric Power Distribution,YY,r,REV602,Table2,Priv,1/8/2019 6:37,5.600,5.900,4.800,4.900
+r1800aae221122ely,M,221122,XD180000,Electric Power Distribution,CV,r,REV602,Table2,Priv,10/7/2019 19:35,0.400,0.500,0.600,0.200
+r1800aae221122ely,M,2212,XD180000,Natural Gas Distribution,SE,r,BV334,Table2,Pub,8/3/2018 15:01,0.100,0.200,0.500,0.400
+r1800aae221122ely,M,2212,XD179900,Natural Gas Distribution,IMP,r,REV602,Table2,Pub,1/21/2018 11:50,20.000,20.000,10.000,10.000
+r1800aae221200ely,R,2212,XD180000,Natural Gas Distribution,EST,r,REV602,Table1,Pub,10/7/2018 23:53,"110,691.000","100,043.000","95,062.000","98,154.000"
+r1800aae221200ely,R,2212,X550100,Natural Gas Distribution,YY,r,EXP772,Table1,Pub,8/24/2018 0:49,20.000,19.000,23.000,21.000
+r1800aae221200ely,R,2212,X550200,Natural Gas Distribution,CV,r,REV602,Table1,Priv,1/8/2019 6:37,0.800,0.900,0.900,0.800
+r1800aae221200ely,R,2212,X550300,Natural Gas Distribution,SE,r,REV602,Table1,Priv,10/7/2019 19:35,1.000,1.000,1.000,1.000
+r1800aae221200ely,R,2212,X550400,Natural Gas Distribution,IMP,r,BV334,Table1,Pub,8/3/2018 15:01,10.000,10.500,10.500,10.000
+r5505aae221200ely,K,2212,X550500,Natural Gas Distribution,EST,r,REV602,Table2,Pub,1/21/2018 11:50,"48,887.000","48,269.000","46,837.000","52,366.000"
+r5505aae221200ely,K,2212,XD575000,Natural Gas Distribution,YY,r,REV602,Table2,Pub,10/7/2018 23:53,5.300,5.800,5.600,5.400
+r5505aae221200ely,K,2212,XD575100,Natural Gas Distribution,CV,r,EXP772,Table2,Pub,8/24/2018 0:49,0.600,0.620,0.680,0.700
+r5505aae221200ely,K,2212,XD180000,Natural Gas Distribution,SE,r,REV602,Table2,Priv,1/8/2019 6:37,0.300,0.240,0.340,0.300
+r5505aae221200ely,K,2212,XD180000,Natural Gas Distribution,IMP,r,REV602,Table2,Priv,10/7/2019 19:35,7.200,4.700,4.600,4.500
+r1799aae221300ely,M,2213,XD179900,"Water, Sewage and Other Systems",EST,r,BV334,Table1,Pub,8/3/2018 15:01,"2,190.000","1,839.000","1,626.000","1,610.000"
+r1800aae221300ely,M,2213,XD180000,"Water, Sewage and Other Systems",YY,r,REV602,Table1,Pub,1/21/2018 11:50,5.600,5.900,4.800,4.900
+r1800aae221300ely,M,2213,X555100,"Water, Sewage and Other Systems",CV,r,REV602,Table1,Pub,10/7/2018 23:53,0.400,0.500,0.600,0.200
+r1800aae221300ely,M,2213,X555200,"Water, Sewage and Other Systems",SE,r,EXP772,Table1,Pub,8/24/2018 0:49,0.100,0.200,0.500,0.400
+r1800aae221300ely,M,2213,XD575000,"Water, Sewage and Other Systems",IMP,r,REV602,Table1,Priv,1/8/2019 6:37,21.000,21.000,25.000,25.000
+r5751aae221300ely,R,2213,XD575100,"Water, Sewage and Other Systems",EST,r,REV602,Table1,Priv,10/7/2019 19:35,"8,516.000","8,120.000","7,965.000","7,961.000"
+r5751aae221300ely,R,22131,XD180000,Water Supply and Irrigation Systems,YY,r,BV334,Table1,Pub,8/3/2018 15:01,3.200,3.500,4.400,4.200
+r5751aae221300ely,R,22131,XD180000,Water Supply and Irrigation Systems,CV,r,REV602,Table1,Pub,1/21/2018 11:50,0.300,0.300,0.400,0.400
+r5751aae221300ely,R,22131,XD180000,Water Supply and Irrigation Systems,SE,r,REV602,Table1,Pub,10/7/2018 23:53,0.200,0.200,0.200,3.000
+r5751aae221300ely,R,22131,XD180000,Water Supply and Irrigation Systems,IMP,r,EXP772,Table1,Pub,8/24/2018 0:49,14.800,14.400,12.900,9.900
+r1800aaa221320ely,K,22132,XD180000,Sewage Treatment Facilities,EST,r,REV602,Table1,Priv,1/8/2019 6:37,"2,035.000","1,714.000","1,668.000","1,632.000"
+r1800aaa221320ely,K,22132,XD180000,Sewage Treatment Facilities,YY,r,REV602,Table1,Priv,10/7/2019 19:35,20.000,22.000,21.000,28.000
+r1800aaa221320ely,K,22132,XD180000,Sewage Treatment Facilities,CV,r,BV334,Table1,Pub,8/3/2018 15:01,0.800,1.300,1.300,1.000
+r1800aaa221320ely,K,22132,XD180000,Sewage Treatment Facilities,SE,r,REV602,Table1,Pub,1/21/2018 11:50,35.000,36.000,37.000,39.000
+r1800aaa221320ely,K,22133,XD180000,Steam and Air-Conditioning Supply,IMP,r,REV602,Table1,Pub,10/7/2018 23:53,21.000,20.000,18.000,17.000
+r1800aaa481000ely,M,22133,XD180000,Steam and Air-Conditioning Supply,EST,r,EXP772,Table2,Pub,8/24/2018 0:49,"1,043.000","1,410.000","1,416.000","1,576.000"
+r1800aaa481000ely,M,22133,XD180000,Steam and Air-Conditioning Supply,YY,r,REV602,Table2,Priv,1/8/2019 6:37,11.000,5.000,8.200,9.800
+r1800aaa481000ely,M,22133,XD180000,Steam and Air-Conditioning Supply,CV,r,REV602,Table2,Priv,10/7/2019 19:35,1.000,2.000,2.000,2.000
+r1800aaa481000ely,M,4849y,XD180000,Transportation and Warehousing,SE,r,BV334,Table2,Pub,8/3/2018 15:01,0.100,0.200,0.500,0.400
+r1800aaa481000ely,M,4849y,XD180000,Transportation and Warehousing,IMP,r,REV602,Table2,Pub,1/21/2018 11:50,21.000,21.000,25.000,25.000
+r5575aae481100ely,R,4849y,XD180000,Transportation and Warehousing,EST,r,REV602,Table2,Pub,10/7/2018 23:53,"991,615.000","918,981.000","879,220.000","876,498.000"
+r5575aae481100ely,R,4849y,XD180000,Transportation and Warehousing,YY,r,EXP772,Table2,Pub,8/24/2018 0:49,5.600,5.900,4.800,4.900
+r5575aae481100ely,R,481,XD180000,Air Transportation,CV,r,REV602,Table2,Priv,1/8/2019 6:37,0.400,0.500,0.600,0.200
+r5575aae481100ely,R,481,XD180000,Air Transportation,SE,r,REV602,Table2,Priv,10/7/2019 19:35,0.100,0.200,0.500,0.400
+r5575aae481100ely,R,481,XD180000,Air Transportation,IMP,r,BV334,Table2,Pub,8/3/2018 15:01,20.000,20.000,10.000,10.000
+r5576aae481100ely,K,481,XD180000,Air Transportation,EST,r,REV602,Table2,Pub,1/21/2018 11:50,"1,568.000","1,486.000","1,355.000","1,384.000"
+r5576aae481100ely,K,4811,XD179900,Scheduled Air Transportation,YY,r,REV602,Table2,Pub,10/7/2018 23:53,0.400,0.500,0.600,0.200
+r5576aae481100ely,K,4811,XD180000,Scheduled Air Transportation,CV,r,EXP772,Table2,Pub,8/24/2018 0:49,0.100,0.200,0.500,0.400
+r5576aae481100ely,K,4811,X557500,Scheduled Air Transportation,SE,r,REV602,Table2,Priv,1/8/2019 6:37,21.000,21.000,25.000,25.000
+r5576aae481100ely,K,4811,X557600,Scheduled Air Transportation,IMP,r,REV602,Table2,Priv,10/7/2019 19:35,39.000,56.000,60.000,64.000
+r5580aae481100ely,M,4811,X557700,Scheduled Air Transportation,EST,r,BV334,Table1,Pub,8/3/2018 15:01,"121,513.000","111,566.000","105,805.000","106,402.000"
+r5580aae481100ely,M,4811,X557800,Scheduled Air Transportation,YY,r,EXP772,Table1,Pub,8/24/2018 0:49,11.200,14.300,13.200,13.000
+r5580aae481100ely,M,4811,X557900,Scheduled Air Transportation,CV,r,REV602,Table1,Priv,1/8/2019 6:37,0.500,0.900,0.600,0.880
+r5580aae481100ely,M,4811,X558000,Scheduled Air Transportation,SE,r,REV602,Table1,Priv,10/7/2019 19:35,5.300,9.800,9.700,8.400
+r5580aae481100ely,M,481111,XD180000,Scheduled Passenger Air Transportation,IMP,r,BV334,Table1,Pub,8/3/2018 15:01,19.400,28.600,24.600,20.900
