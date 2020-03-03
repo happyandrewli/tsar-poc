@@ -8,3 +8,7 @@ These field names match what is in the sastsarfinal table in the DreamFactory AP
 6. We will use "My JSON Server", a fake onine REST server, to expose a Rest API online. We will copy the data from the minified json file to db.json. Then we need to edit the db.json and limit the size to 10KB max (That's the free plan https://my-json-server.typicode.com/pricing.).
 
 The official site for My JSON Server: https://my-json-server.typicode.com/
+
+
+
+CONVERT DIRECTLY FROM EXCEL TO JSON!! http://beautifytools.com/excel-to-json-converter.php

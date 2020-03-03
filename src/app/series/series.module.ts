@@ -23,9 +23,10 @@ import { FavoritesModule } from '../favorites/favorites.module';
 
 import { ExportAsModule } from 'ngx-export-as';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { ItemTypeFilterComponent } from './item-type-filter/item-type-filter.component';
 
 @NgModule({
-  declarations: [SeriesPageComponent, FiltersComponent, SearchComponent, NaicsFilterComponent, ItemFilterComponent, SeriesGraphComponent],
+  declarations: [SeriesPageComponent, FiltersComponent, SearchComponent, NaicsFilterComponent, ItemFilterComponent, SeriesGraphComponent, ItemTypeFilterComponent],
   imports: [
     CommonModule,
     FormsModule,

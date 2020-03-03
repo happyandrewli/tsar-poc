@@ -20,8 +20,9 @@ export class FiltersComponent implements OnInit {
     items: new FormControl(),
     topic: new FormControl(),
     subtopic: new FormControl(),
-    itemType: new FormControl(),
-    dataType: new FormControl()
+    itemTypes: new FormControl(),
+    dataType: new FormControl(),
+    sortBy: new FormControl()
   })
   constructor(private seriesService: SeriesService,
     private seriesQuery: SeriesQuery) { }

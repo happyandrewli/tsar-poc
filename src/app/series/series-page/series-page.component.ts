@@ -21,9 +21,10 @@ export class SeriesPageComponent implements OnInit {
   }
   isLoading$: Observable<boolean>;
   seriesList$: Observable<Series[]>;
-  seriesList: Series[];
-  ngxSeriesList = [];
   count$: Observable<number>;
+
+  isExpanded: string = "C";
+
   constructor(private seriesService: SeriesService,
     private seriesQuery: SeriesQuery,
     private exportAsService: ExportAsService,
@@ -32,44 +33,25 @@ export class SeriesPageComponent implements OnInit {
   ngOnInit() {
     this.isLoading$ = this.seriesQuery.selectLoading();
     this.seriesList$ = this.seriesQuery.selectAll();
-    this.search();
     this.count$ = this.seriesQuery.selectCount();
+    this.search();
+    
 
-    // combineLatest([
-    //   this.seriesQuery.selectFilters$,
-    //   this.seriesQuery.selectSearchTerm$
-    // ]).pipe(switchMap(([filters, term])=>{
-    //     return this.seriesService.getSeriesByNames(term, filters);
-    // }), untilDestroyed(this)).subscribe({
-    //   error(){
-    //   }
-    // });
+    combineLatest([
+      this.seriesQuery.selectFilters$,
+      // this.seriesQuery.selectSearchTerm$
+    ]).pipe(switchMap(([filters])=>{
+        return this.seriesService.getAll(this.seriesQuery.searchTerm, filters);
+    }), untilDestroyed(this)).subscribe({
+      error(){
+      }
+    });
   }
   
   ngOnDestroy() {};
 
   search(){
-    this.seriesService.getSeriesByNames(this.seriesQuery.searchTerm, this.seriesQuery.filters)
-      .subscribe(data => {
-      // this.seriesList = data.resource.map(dfSeries => {
-      //   return {
-      //     name: dfSeries.name,
-      //   }
-
-
-      // });
-      // this.ngxSeriesList = data.resource.slice(0,9).map(s => {
-      //   return {
-      //     "name": s.name,
-      //     "series": [
-      //       {"name": "2014a1", "value": s.val2014a1},
-      //       {"name": "2015a1", "value": s.val2015a1},
-      //       {"name": "2016a1", "value": s.val2016a1},
-      //       {"name": "2017a1", "value": s.val2017a1},
-      //       {"name": "2018a1", "value": s.val2018a1}
-      //     ]
-      //   }
-      // })
+    return this.seriesService.getAll(this.seriesQuery.searchTerm, this.seriesQuery.filters).subscribe(data=>{
     });
   }
 
@@ -80,25 +62,24 @@ export class SeriesPageComponent implements OnInit {
   exportSeriesTable(type:string){
     // this.exportAsService.save(this.exportAsConfig, 'series-table').subscribe(()=>{
     // })
-
     const fileName = `series-table.${type}`;
     const fileType=this.fileSaverService.genType(fileName);
 
     this.seriesList$.subscribe(data=>{
-      let csvData = 'Series, 2014A1, 2015A1, 2016A1, 2017A1, 2018A1 \n';
-      data.forEach(series => {
-        csvData += series.name.trim() + ',';
-        csvData += series.series.map(dataPoint => {
-          if(dataPoint.value){
-            return dataPoint.value.trim();
-          }else{
-            return '';
-          }
-        }).join(',');
-        csvData += '\n';
-      })
-      const txtBlob = new Blob([csvData], {type: fileType});
-      this.fileSaverService.save(txtBlob, fileName);
+      // let csvData = 'Series, 2014A1, 2015A1, 2016A1, 2017A1, 2018A1 \n';
+      // data.forEach(series => {
+      //   csvData += series.name.trim() + ',';
+      //   csvData += series.series.map(dataPoint => {
+      //     if(dataPoint.value){
+      //       return dataPoint.value.trim();
+      //     }else{
+      //       return '';
+      //     }
+      //   }).join(',');
+      //   csvData += '\n';
+      // })
+      // const txtBlob = new Blob([csvData], {type: fileType});
+      // this.fileSaverService.save(txtBlob, fileName);
 
 
       // let excelData = [];

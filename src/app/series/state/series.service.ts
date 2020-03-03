@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { SeriesStore } from './series.store';
-import { BaseSeries, Series, DfResource } from './series.model';
+// import { BaseSeries, Series, DfResource } from './series.model';
 import { tap } from 'rxjs/operators';
-import { API, DFAPI } from '../../api';
+import { API } from '../../api';
 import { ID } from '@datorama/akita';
+import { Series } from './series.model';
 
 @Injectable({ providedIn: 'root' })
 export class SeriesService {
@@ -12,6 +13,36 @@ export class SeriesService {
 
     }
 
+    getAll(term: string, filters) {
+        let params = new HttpParams();
+        if (term) {
+            term.split(',').map(name => name.trim()).forEach(name => {
+                params = params.append('name', name);
+            });
+
+            // Use below code for DF API - Format has to be 'filter = name in ("...", "...", "...")'
+            // term = term.split(',').map(name => '"' + name.trim() + '"').join(',');
+            // term = 'name in (' + term + ')';
+            // params = params.append('filter', term);
+        }
+        
+        if(filters.itemTypes && filters.itemTypes.length > 0) {
+            filters.itemTypes.forEach(itemType => {
+                params = params.append('item_type', itemType);
+            })
+        }
+        params = params.append('_sort', 'item_type');
+        params = params.append('_order', 'asc');
+
+
+        return this.http.get<Series[]>(`${API}/series`, { params }).pipe(
+            tap(series => {
+                this.seriesStore.set(series);
+            })
+        );
+
+    }
+    /*
     getSeriesByNames(term: string, filters) {
         let params = new HttpParams();
         if (term) {
@@ -46,7 +77,9 @@ export class SeriesService {
             })
         );
     }
+    */
 
+    /*
     getAll(term: string, filters) {
         let params = new HttpParams();
         if (term) {
@@ -79,6 +112,7 @@ export class SeriesService {
             tap(series => this.seriesStore.set(series))
         );
     }
+    */
 
     updateFilters(filters) {
         this.seriesStore.update({ filters });

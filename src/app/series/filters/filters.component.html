@@ -50,19 +50,26 @@
             </nz-input-group>
         </div>
         <div nz-col>
-            <button nz-button nz-popover [nzPopoverContent]="naicsTemplate" nzPopoverTrigger="click" nzShape="round"
+            <button nz-button nz-popover [nzPopoverContent]="naicsTemplate" nzPopoverTrigger="click"
                 nzPopoverPlacement="bottomLeft">
                 NAICS
             </button>
         </div>
         <div nz-col>
-            <steps-item-filter formControlName="items"></steps-item-filter>
+            <!-- <steps-item-filter formControlName="items"></steps-item-filter> -->
+            <steps-item-type-filter formControlName="itemTypes"></steps-item-type-filter>
         </div>
         <div nz-col>
-            <button nz-button nz-popover [nzPopoverContent]="topicTemplate" nzPopoverTrigger="click" nzShape="round"
+            <button nz-button nz-popover [nzPopoverContent]="topicTemplate" nzPopoverTrigger="click"
                 nzPopoverPlacement="bottomLeft">
                 Topic/Subtopic
             </button>
+        </div>
+        <div nz-col>
+                <nz-select formControlName="sortBy" style="width: 160px;">
+                    <nz-option [nzLabel]="'Sort By: Name'" [nzValue]="'name'"></nz-option>
+                    <nz-option [nzLabel]="'Sort By: Item Type'" [nzValue]="'item_type'"></nz-option>
+                </nz-select>
         </div>
         <!-- <div nz-col>
             <button nz-button nz-popover [nzPopoverContent]="itemTemplate" nzPopoverTrigger="click" nzShape="round"

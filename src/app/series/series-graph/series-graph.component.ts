@@ -6,6 +6,7 @@ import { Series } from '../state/series.model';
 
 import html2canvas from 'html2canvas';
 import { FileSaverService } from 'ngx-filesaver';
+import { SeriesQuery } from '../state/series.query';
 @Component({
   selector: 'steps-series-graph',
   templateUrl: './series-graph.component.html',
@@ -21,8 +22,37 @@ export class SeriesGraphComponent implements OnInit {
     return this._series;
   }
   @Input('series')
-  set series(series: any[]){
-    this._series = series.slice(0,10);
+  set series(series: Series[]){
+    if(this.seriesQuery.filters.itemTypes.length==0){
+      this._series = series.filter(series=>{
+        return series.item_type == 'CV';
+      }).map(series=>{
+        return {name: series.name, series: [
+          {name: '2015A1', value: series.val2015a1}, 
+          {name: '2016A1', value: series.val2016a1}, 
+          {name: '2017A1', value: series.val2017a1}, 
+          {name: '2018A1', value: series.val2018a1}]}
+      });
+    } else if (this.seriesQuery.filters.itemTypes.length==1){
+      this._series = series.map(series=>{
+        return {name: series.name, series: [
+          {name: '2015A1', value: series.val2015a1}, 
+          {name: '2016A1', value: series.val2016a1}, 
+          {name: '2017A1', value: series.val2017a1}, 
+          {name: '2018A1', value: series.val2018a1}]}
+      });
+    } else if  (this.seriesQuery.filters.itemTypes.length > 1){
+      series.filter(series=>{
+        return series.item_type == this.seriesQuery.filters.itemTypes[0];
+      }).map(series=>{
+        return {name: series.name, series: [
+          {name: '2015A1', value: series.val2015a1}, 
+          {name: '2016A1', value: series.val2016a1}, 
+          {name: '2017A1', value: series.val2017a1}, 
+          {name: '2018A1', value: series.val2018a1}]}
+      });
+    }
+    // this._series = series.slice(0,10);
   }
   // @Input('series')
   // set series(value){
@@ -51,7 +81,7 @@ export class SeriesGraphComponent implements OnInit {
   timeline = true;
   curve = shape.curveBasis;
 
-  constructor(private fileSaverService: FileSaverService) { }
+  constructor(private fileSaverService: FileSaverService, private seriesQuery: SeriesQuery) { }
 
   ngOnInit() {
   }

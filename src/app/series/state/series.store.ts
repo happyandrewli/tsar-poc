@@ -12,8 +12,9 @@ export interface SeriesState extends EntityState<Series> {
         items: string[];
         topic: string;
         subtopic: string;
-        itemType: string;
+        itemTypes: string[];
         dataType: string;
+        sortBy: string;
     }
 }
 
@@ -32,8 +33,9 @@ export class SeriesStore extends EntityStore<SeriesState, Series> {
                 items: ['789934'],
                 topic: null,
                 subtopic: null,
-                itemType: null,
-                dataType: null
+                itemTypes: [],
+                dataType: null,
+                sortBy: 'item_type'
             }
         });
     }
