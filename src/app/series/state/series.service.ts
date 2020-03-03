@@ -5,7 +5,7 @@ import { SeriesStore } from './series.store';
 import { tap } from 'rxjs/operators';
 import { API } from '../../api';
 import { ID } from '@datorama/akita';
-import { Series } from './series.model';
+import { Series, DfResource } from './series.model';
 
 @Injectable({ providedIn: 'root' })
 export class SeriesService {
@@ -15,29 +15,44 @@ export class SeriesService {
 
     getAll(term: string, filters) {
         let params = new HttpParams();
+        let dfParams = '';
         if (term) {
-            term.split(',').map(name => name.trim()).forEach(name => {
-                params = params.append('name', name);
-            });
+            // Use below code for Json Server API - Format has to be 'name=...&name=...&name...'
+            // term.split(',').map(name => name.trim()).forEach(name => {
+            //     params = params.append('name', name);
+            // });
 
             // Use below code for DF API - Format has to be 'filter = name in ("...", "...", "...")'
-            // term = term.split(',').map(name => '"' + name.trim() + '"').join(',');
-            // term = 'name in (' + term + ')';
-            // params = params.append('filter', term);
+            term = term.split(',').map(name => '"' + name.trim() + '"').join(',');
+            term = 'name in (' + term + ')';
+            params = params.append('filter', term);
+            // dfParams+=term;
         }
         
         if(filters.itemTypes && filters.itemTypes.length > 0) {
-            filters.itemTypes.forEach(itemType => {
-                params = params.append('item_type', itemType);
-            })
+            // Use below code for Json Server API - Format has to be 'item_type=...&item_type=...&item_type...'
+            // filters.itemTypes.forEach(itemType => {
+            //     params = params.append('item_type', itemType);
+            // })
+
+            // Use below code for DF API - Format has to be 'filter = item_type in ("...", "...", "...")'
+            filters.itemTypes = filters.itemTypes.map(itemType => '"' + itemType.trim() + '"').join(',');
+            filters.itemTypes = 'item_type in (' + filters.itemTypes + ')';
+            params = params.append('filter', filters.itemTypes);
+            // dfParams=dfParams+'&'+filters.itemTypes;
         }
-        params = params.append('_sort', 'item_type');
-        params = params.append('_order', 'asc');
+        // params = params.append('_sort', 'item_type');
+        // params = params.append('_order', 'asc');
 
+        // if(dfParams){
+        //     params = params.append('filter', dfParams);
+        // }
+        params = params.append('order', 'item_type');
 
-        return this.http.get<Series[]>(`${API}/series`, { params }).pipe(
+        // return this.http.get<Series[]>(`${API}/series`, { params }).pipe(
+        return this.http.get<DfResource>(`${API}`, { params }).pipe(
             tap(series => {
-                this.seriesStore.set(series);
+                this.seriesStore.set(series.resource);
             })
         );
 

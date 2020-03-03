@@ -45,9 +45,9 @@ export interface Series {
 // }
 
 
-// export interface DfResource {
-//     resource: DfSeries[]
-// }
+export interface DfResource {
+    resource: Series[]
+}
 
 // export interface BaseDfSeries {
 //     name: string;

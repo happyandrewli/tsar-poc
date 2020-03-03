@@ -25,7 +25,7 @@ export class SeriesGraphComponent implements OnInit {
   set series(series: Series[]){
     if(this.seriesQuery.filters.itemTypes.length==0){
       this._series = series.filter(series=>{
-        return series.item_type == 'CV';
+        return series.item_type.trim() == 'CV';
       }).map(series=>{
         return {name: series.name, series: [
           {name: '2015A1', value: series.val2015a1}, 

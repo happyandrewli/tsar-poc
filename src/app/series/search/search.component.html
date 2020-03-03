@@ -17,7 +17,22 @@
     <div nz-col>
         <nz-input-group [nzAddOnAfter]="addOnAfterTemplate">
             <textarea nz-input [formControl]="searchControl" style="width: 700px; height: 104px;resize:none;" 
-                placeholder="Enter comma-delimited series names here, ex. UYC91ZGY8JV, HTV63QXT9DH"></textarea>
+                placeholder="Enter comma-delimited series names here, ex. UYC91ZGY8JV, HTV63QXT9DH"
+                [nzAutocomplete]="auto">
+            </textarea>
+            <!-- (input)="onInput($event.target?.value)" -->
+            <nz-autocomplete nzBackfill #auto>
+                <nz-auto-optgroup [nzLabel]="groupTitle">
+
+                    <ng-template #groupTitle>
+                        <span>SERIES NAMES</span>
+                        <!-- <span style="float:right">Showing 5 of 03 matches</span> -->
+                    </ng-template>
+                    <nz-auto-option *ngFor="let series of (seriesList$ | async) | searchAuto: searchControl.value" [nzValue]="series.name">
+                        {{series.name | searchAuto: searchControl.value}}
+                    </nz-auto-option>
+                </nz-auto-optgroup>
+            </nz-autocomplete>
         </nz-input-group>
         <ng-template #addOnAfterTemplate>
             <button nz-button nzType="link" (click)="download()"
@@ -31,6 +46,9 @@
                 nzTooltipTitle="Click to save the currently searched series names to your favorites.">
                 <i nz-icon nzType="save"></i>
             </button>
+            <!-- <button nz-button nzType="primary" nzSize="large" nzSearch>
+                <i nz-icon nzType="search" nzTheme="outline"></i>
+            </button> -->
             <nz-modal [(nzVisible)]="confirmAddToFavorites" nzTitle="How would you like to call this list?"
                 (nzOnOk)="addToFavoritesOK()" (nzOnCancel)="addToFavoritesCancel()">
                 <input type="text" nz-input placeholder="Enter list name here" [(ngModel)]="listName"/>

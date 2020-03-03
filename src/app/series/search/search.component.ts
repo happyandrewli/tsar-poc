@@ -8,6 +8,8 @@ import { UploadChangeParam, UploadFile } from 'ng-zorro-antd/upload';
 import { FileSaverService } from 'ngx-filesaver';
 import { NzMessageService } from 'ng-zorro-antd';
 import { FavoritesService } from 'src/app/favorites/state/favorites.service';
+import { Observable } from 'rxjs';
+import { Series } from '../state/series.model';
 
 @Component({
   selector: 'app-search',
@@ -16,7 +18,8 @@ import { FavoritesService } from 'src/app/favorites/state/favorites.service';
 })
 export class SearchComponent implements OnInit {
   searchControl = new FormControl();
-
+  seriesList$: Observable<Series[]>;
+  
   constructor(private seriesService: SeriesService,
     private seriesQuery: SeriesQuery,
     private fileSaverService: FileSaverService,
@@ -25,11 +28,16 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     this.searchControl.patchValue(this.seriesQuery.searchTerm);
-
+    this.seriesList$ = this.seriesQuery.selectAll();
     this.searchControl.valueChanges.pipe(
       debounceTime(300),
       distinctUntilChanged()
     ).subscribe((term) => this.seriesService.updateSearchTerm(term));
+  }
+
+  options: string[] = [];
+  onInput(value: string): void {
+    this.options = value ? [value, value + value, value + value + value] : [];
   }
 
   hanldeUploadChange(info: {file: UploadFile}): void {
