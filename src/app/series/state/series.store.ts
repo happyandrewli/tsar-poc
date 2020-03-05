@@ -30,7 +30,7 @@ export class SeriesStore extends EntityStore<SeriesState, Series> {
                 from: '2014',
                 to: '2018',
                 naics: [],
-                items: ['789934'],
+                items: [],
                 topic: null,
                 subtopic: null,
                 itemTypes: [],

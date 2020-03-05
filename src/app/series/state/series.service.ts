@@ -2,15 +2,41 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { SeriesStore } from './series.store';
 // import { BaseSeries, Series, DfResource } from './series.model';
-import { tap } from 'rxjs/operators';
+import { tap, map } from 'rxjs/operators';
 import { API } from '../../api';
 import { ID } from '@datorama/akita';
 import { Series, DfResource } from './series.model';
+import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class SeriesService {
     constructor(private seriesStore: SeriesStore, private http: HttpClient) {
 
+    }
+
+    getSeriesByParams(keyword: string, filters) {
+        let params = new HttpParams();
+        let dfParams = '';
+        if (keyword) {
+            dfParams += 'name contains ' + keyword;
+        }
+        if (filters.itemTypes && filters.itemTypes.length > 0) {
+            if (dfParams) {
+                dfParams = dfParams + ' and ' + 'item_type in (' + filters.itemTypes.map(itemType => {return '"' + itemType + '"'}).join(',') + ')';
+            } else {
+                dfParams = 'item_type in (' + filters.itemTypes.map(itemType => { return '"' + itemType.trim() + '"'}).join(',') + ')';
+            }
+        }
+        if(dfParams){
+            params = params.append('filter', dfParams);
+        }
+        params = params.append('order', 'item_type');
+
+        return this.http.get<DfResource>(`${API}`, { params }).pipe(
+            tap(series => {
+                this.seriesStore.set(series.resource);
+            })
+        );
     }
 
     getAll(term: string, filters) {
@@ -28,8 +54,8 @@ export class SeriesService {
             params = params.append('filter', term);
             // dfParams+=term;
         }
-        
-        if(filters.itemTypes && filters.itemTypes.length > 0) {
+
+        if (filters.itemTypes && filters.itemTypes.length > 0) {
             // Use below code for Json Server API - Format has to be 'item_type=...&item_type=...&item_type...'
             // filters.itemTypes.forEach(itemType => {
             //     params = params.append('item_type', itemType);
@@ -55,8 +81,31 @@ export class SeriesService {
                 this.seriesStore.set(series.resource);
             })
         );
-
     }
+
+    getSeriesNames(keyword: string, filters): Observable<string[]> {
+        let params = new HttpParams();
+        let dfParams = '';
+        if (keyword) {
+            dfParams += 'name contains ' + keyword;
+        }
+        if (filters.itemTypes && filters.itemTypes.length > 0) {
+            if (dfParams) {
+                dfParams = dfParams + ' and ' + 'item_type in (' + filters.itemTypes.map(itemType => '"' + itemType.trim() + '"').join(',') + ')';
+            } else {
+                dfParams = 'item_type in (' + filters.itemTypes.map(itemType => '"' + itemType.trim() + '"').join(',') + ')';
+            }
+        }
+        if(dfParams){
+            params = params.append('filter', dfParams);
+        }
+        params = params.append('order', 'name');
+        // params = params.append('fields', 'name');
+        return this.http.get<DfResource>(`${API}`, { params }).pipe(
+            map(dfResource => dfResource.resource.map(series => series.name))
+        );
+    }
+
     /*
     getSeriesByNames(term: string, filters) {
         let params = new HttpParams();

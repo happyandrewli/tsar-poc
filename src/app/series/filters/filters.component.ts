@@ -33,7 +33,9 @@ export class FiltersComponent implements OnInit {
     this.filters.valueChanges.pipe(
       tap(()=>this.seriesService.invalidateCache()),
       untilDestroyed(this)
-    ).subscribe(filters => this.seriesService.updateFilters(filters))
+    ).subscribe(filters => {
+      this.seriesService.updateFilters(filters);
+    })
   }
 
   ngOnDestroy() {}

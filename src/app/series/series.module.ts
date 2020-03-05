@@ -26,7 +26,9 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { ItemTypeFilterComponent } from './item-type-filter/item-type-filter.component';
 
 import {SearchAutoCompletePipe} from './search/search-auto-complete.pipe';
-import { HighlightSearch } from './search/highlight-keyword.pipe';
+import { HighlightSearch } from './series-page/highlight-keyword.pipe';
+
+import { NgHighlightModule } from 'ngx-text-highlight';
 @NgModule({
   declarations: [SeriesPageComponent, FiltersComponent, SearchComponent, NaicsFilterComponent, ItemFilterComponent, SeriesGraphComponent, ItemTypeFilterComponent, SearchAutoCompletePipe
     ,HighlightSearch
@@ -43,7 +45,8 @@ import { HighlightSearch } from './search/highlight-keyword.pipe';
     FileSaverModule,
     FavoritesModule,
     ExportAsModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    NgHighlightModule
   ]
 })
 export class SeriesModule { }

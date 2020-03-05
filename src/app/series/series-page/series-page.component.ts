@@ -34,6 +34,7 @@ export class SeriesPageComponent implements OnInit {
     this.isLoading$ = this.seriesQuery.selectLoading();
     this.seriesList$ = this.seriesQuery.selectAll();
     this.count$ = this.seriesQuery.selectCount();
+    this.localSearchTerm = this.seriesQuery.searchTerm;
     this.search();
 
 
@@ -50,9 +51,11 @@ export class SeriesPageComponent implements OnInit {
 
   ngOnDestroy() { };
 
+  localSearchTerm: string = '';
   search() {
-    return this.seriesService.getAll(this.seriesQuery.searchTerm, this.seriesQuery.filters).subscribe(data => {
-    });
+    this.localSearchTerm = this.seriesQuery.searchTerm;
+    // return this.seriesService.getAll(this.seriesQuery.searchTerm, this.seriesQuery.filters).subscribe(data => {});
+    return this.seriesService.getSeriesByParams(this.seriesQuery.searchTerm, this.seriesQuery.filters).subscribe(data => {});
   }
 
   exportAsConfig: ExportAsConfig = {

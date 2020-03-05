@@ -111,7 +111,7 @@
                                             <nz-tag *ngIf="series.item_type.trim()=='IMP'" [nzColor]="'green'">{{series.item_type}}</nz-tag> 
                                             <nz-tag *ngIf="series.item_type.trim()=='SE'" [nzColor]="'purple'">{{series.item_type}}</nz-tag> 
                                             <nz-tag *ngIf="series.item_type.trim()=='YY'" [nzColor]="'cyan'">{{series.item_type}}</nz-tag> 
-                                            {{series.name}}
+                                            <span [innerHTML]="series.name | highlight:localSearchTerm"></span>
                                         </td>
                                         <!-- <td>{{series.item_type}}</td> -->
                                         <td>{{series.val2015a1}}</td>

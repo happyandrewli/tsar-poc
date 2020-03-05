@@ -9,8 +9,9 @@ export class SearchAutoCompletePipe implements PipeTransform {
         if(!seriesList || !searchTerm) {
             return seriesList;
         }
-        return seriesList.filter(series=>
-            series['name'].toLowerCase().includes(searchTerm.toLowerCase()) === true
+        console.log(typeof seriesList);
+        return seriesList.filter((series, index) => 
+            seriesList.findIndex(element => element.name == series.name) === index && series['name'].toLowerCase().includes(searchTerm.toLowerCase()) === true
         );
     }
 

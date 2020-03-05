@@ -9,6 +9,6 @@ export class HighlightSearch implements PipeTransform {
             return value;
         }
         var re = new RegExp(keyword, 'gi');
-        return value.replace(re, "<a>$&</a>");
+        return value.replace(re, "<strong>$&</strong>");
     }
 }

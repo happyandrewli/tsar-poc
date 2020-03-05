@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 
 import { SeriesService } from '../state/series.service';
@@ -19,7 +19,7 @@ import { Series } from '../state/series.model';
 export class SearchComponent implements OnInit {
   searchControl = new FormControl();
   seriesList$: Observable<Series[]>;
-  
+
   constructor(private seriesService: SeriesService,
     private seriesQuery: SeriesQuery,
     private fileSaverService: FileSaverService,
@@ -31,8 +31,28 @@ export class SearchComponent implements OnInit {
     this.seriesList$ = this.seriesQuery.selectAll();
     this.searchControl.valueChanges.pipe(
       debounceTime(300),
+      map(val => this.runAutoComplete(val)),
       distinctUntilChanged()
     ).subscribe((term) => this.seriesService.updateSearchTerm(term));
+  }
+
+  filteredSeries: { value: string, label: string }[] = [];
+  runAutoComplete(val: string) {
+    if (val.length >= 2) {
+      this.seriesService.getSeriesNames(val, this.seriesQuery.filters).subscribe(filteredNames => {
+        this.filteredSeries = filteredNames.filter((v, i) => filteredNames.indexOf(v) === i)
+          .map(fSeries => {
+            return {
+              value: fSeries, label: fSeries.replace(new RegExp(val, "gi"), match => {
+                return '<a target="_blank">' + match + '</a>';
+              })
+            };
+          });
+      });
+    } else {
+      this.filteredSeries = [];
+    }
+    return val;
   }
 
   options: string[] = [];
@@ -40,8 +60,8 @@ export class SearchComponent implements OnInit {
     this.options = value ? [value, value + value, value + value + value] : [];
   }
 
-  hanldeUploadChange(info: {file: UploadFile}): void {
-    if(info.file.thumbUrl){
+  hanldeUploadChange(info: { file: UploadFile }): void {
+    if (info.file.thumbUrl) {
       this.seriesService.updateSearchTerm(atob(info.file.thumbUrl.split(',')[1]));
       this.searchControl.patchValue(this.seriesQuery.searchTerm);
     }
@@ -59,29 +79,29 @@ export class SearchComponent implements OnInit {
     // }
   }
 
-  download(){
+  download() {
     const fileName = "series.txt";
     const fileType = this.fileSaverService.genType(fileName);
-    const txtBlog = new Blob([this.seriesQuery.searchTerm], {type: fileType});
+    const txtBlog = new Blob([this.seriesQuery.searchTerm], { type: fileType });
     this.fileSaverService.save(txtBlog, fileName);
   }
 
   confirmAddToFavorites = false;
-  listName:string = "";
+  listName: string = "";
   addToFavorites() {
     this.confirmAddToFavorites = true;
   }
   addToFavoritesOK() {
-    if(this.seriesQuery.searchTerm) {
+    if (this.seriesQuery.searchTerm) {
       this.confirmAddToFavorites = false;
-      this.favoritesService.add({name: this.listName, seriesNames: this.seriesQuery.searchTerm});
+      this.favoritesService.add({ name: this.listName, seriesNames: this.seriesQuery.searchTerm });
       this.message.create('success', 'Your list of series has been saved successfully.');
-    }else {
+    } else {
       this.confirmAddToFavorites = false;
       this.message.create('error', 'Please search for some series first.');
     }
   }
-  addToFavoritesCancel(){
+  addToFavoritesCancel() {
     this.confirmAddToFavorites = false;
   }
 }
