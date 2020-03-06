@@ -50,12 +50,14 @@
                 <nz-breadcrumb-item>TSAR</nz-breadcrumb-item>
             </nz-breadcrumb>
             <section class="inner-content">
-                <app-filters></app-filters>
-                <nz-divider></nz-divider>
-                <app-search></app-search>
-                <div style="display: flex; justify-content: center; width: 980px">
-                    <button nz-button nzType="primary" nzGhost (click)="search()">Search</button>
+                <div style="width: 620px; margin-bottom: 5px">
+                    <app-search></app-search>
                 </div>
+                <app-filters></app-filters>
+
+                <!-- <button nz-button nzType="primary" nzGhost (click)="search()" style="margin-top: 5px">Search</button> -->
+                <!-- <div style="display: flex; justify-content: center; width: 980px">
+                </div> -->
 
                 <nz-tabset>
                     <nz-tab [nzTitle]="titleTemplate1">
@@ -70,28 +72,35 @@
                             </div>
                             <div nz-col>
                                 <nz-radio-group [(ngModel)]="isExpanded" style="margin-right: 5px">
-                                    <label nz-radio-button nzValue="C"><i nz-icon [nzType]="'menu'"></i> Collapsed View</label>
-                                    <label nz-radio-button nzValue="E"><i nz-icon [nzType]="'appstore'"></i> Expanded View</label>
+                                    <label nz-radio-button nzValue="C"><i nz-icon [nzType]="'menu'"></i> Collapsed
+                                        View</label>
+                                    <label nz-radio-button nzValue="E"><i nz-icon [nzType]="'appstore'"></i> Expanded
+                                        View</label>
                                 </nz-radio-group>
 
                                 <nz-button-group>
                                     <button nz-button>Download</button>
-                                    <button nz-button nz-dropdown [nzDropdownMenu]="downloadMenu" nzPlacement="bottomRight">
+                                    <button nz-button nz-dropdown [nzDropdownMenu]="downloadMenu"
+                                        nzPlacement="bottomRight">
                                         <i nz-icon nzType="download"></i>
                                     </button>
                                 </nz-button-group>
                                 <nz-dropdown-menu #downloadMenu="nzDropdownMenu">
                                     <ul nz-menu>
-                                      <li nz-menu-item (click)="exportSeriesTable('csv')"><i nz-icon nzType="file-text" nzTheme="outline"></i> CSV</li>
-                                      <li nz-menu-item (click)="exportSeriesTable('xlsx')"><i nz-icon nzType="file-excel" nzTheme="outline"></i> Excel</li>
-                                      <li nz-menu-item (click)="exportSeriesTable('pdf')"><i nz-icon nzType="file-pdf" nzTheme="outline"></i> PDF</li>
-                                      
+                                        <li nz-menu-item (click)="exportSeriesTable('csv')"><i nz-icon
+                                                nzType="file-text" nzTheme="outline"></i> CSV</li>
+                                        <li nz-menu-item (click)="exportSeriesTable('xlsx')"><i nz-icon
+                                                nzType="file-excel" nzTheme="outline"></i> Excel</li>
+                                        <li nz-menu-item (click)="exportSeriesTable('pdf')"><i nz-icon nzType="file-pdf"
+                                                nzTheme="outline"></i> PDF</li>
+
                                     </ul>
                                 </nz-dropdown-menu>
                             </div>
                         </div>
 
-                        <nz-table #seriesTable [nzData]="seriesList$ | async" nzSize="small" id="seriesTable" style="margin-top: 5px">
+                        <nz-table #seriesTable [nzData]="seriesList$ | async" nzSize="small" id="seriesTable"
+                            style="margin-top: 5px">
                             <thead>
                                 <tr>
                                     <th>Series</th>
@@ -106,11 +115,16 @@
                                 <ng-template ngFor let-series [ngForOf]="seriesTable.data">
                                     <tr>
                                         <td>
-                                            <nz-tag *ngIf="series.item_type.trim()=='CV'" [nzColor]="'geekblue'">{{series.item_type}}</nz-tag> 
-                                            <nz-tag *ngIf="series.item_type.trim()=='EST'" [nzColor]="'orange'">{{series.item_type}}</nz-tag> 
-                                            <nz-tag *ngIf="series.item_type.trim()=='IMP'" [nzColor]="'green'">{{series.item_type}}</nz-tag> 
-                                            <nz-tag *ngIf="series.item_type.trim()=='SE'" [nzColor]="'purple'">{{series.item_type}}</nz-tag> 
-                                            <nz-tag *ngIf="series.item_type.trim()=='YY'" [nzColor]="'cyan'">{{series.item_type}}</nz-tag> 
+                                            <nz-tag *ngIf="series.item_type.trim()=='CV'" [nzColor]="'geekblue'">
+                                                {{series.item_type}}</nz-tag>
+                                            <nz-tag *ngIf="series.item_type.trim()=='EST'" [nzColor]="'orange'">
+                                                {{series.item_type}}</nz-tag>
+                                            <nz-tag *ngIf="series.item_type.trim()=='IMP'" [nzColor]="'green'">
+                                                {{series.item_type}}</nz-tag>
+                                            <nz-tag *ngIf="series.item_type.trim()=='SE'" [nzColor]="'purple'">
+                                                {{series.item_type}}</nz-tag>
+                                            <nz-tag *ngIf="series.item_type.trim()=='YY'" [nzColor]="'cyan'">
+                                                {{series.item_type}}</nz-tag>
                                             <span [innerHTML]="series.name | highlight:localSearchTerm"></span>
                                         </td>
                                         <!-- <td>{{series.item_type}}</td> -->
@@ -143,7 +157,7 @@
                                         </td>
                                     </tr>
                                 </ng-template>
-                                
+
                             </tbody>
                         </nz-table>
                     </nz-tab>

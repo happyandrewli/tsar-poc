@@ -66,6 +66,9 @@
             </button>
         </div>
         <div nz-col>
+            <steps-series-name-filter formControlName="seriesNames"></steps-series-name-filter>
+        </div>
+        <div nz-col>
                 <nz-select formControlName="sortBy" style="width: 160px;">
                     <nz-option [nzLabel]="'Sort By: Name'" [nzValue]="'name'"></nz-option>
                     <nz-option [nzLabel]="'Sort By: Item Type'" [nzValue]="'item_type'"></nz-option>
@@ -122,9 +125,9 @@
     </ng-template>
 </form>
 
-
-
-
+<div style="margin-top: 5px">
+    <nz-tag [nzColor]="'geekblue'" *ngFor="let name of filters.get('seriesNames').value">{{name}}</nz-tag>
+</div>
 
 <ng-template #topicTemplate>
     <div style="border-bottom: 1px solid rgb(233, 233, 233);">

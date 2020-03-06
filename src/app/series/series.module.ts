@@ -13,6 +13,7 @@ import { SeriesPageComponent } from './series-page/series-page.component';
 import { FiltersComponent } from './filters/filters.component';
 import { SearchComponent } from './search/search.component';
 import { NaicsFilterComponent } from './naics-filter/naics-filter.component';
+import { SeriesNameFilterComponent } from './filters/series-name-filter/series-name-filter.component';
 
 import { ngfModule, ngf, ngfFormData } from "angular-file";
 import { ItemFilterComponent } from './item-filter/item-filter.component';
@@ -31,7 +32,7 @@ import { HighlightSearch } from './series-page/highlight-keyword.pipe';
 import { NgHighlightModule } from 'ngx-text-highlight';
 @NgModule({
   declarations: [SeriesPageComponent, FiltersComponent, SearchComponent, NaicsFilterComponent, ItemFilterComponent, SeriesGraphComponent, ItemTypeFilterComponent, SearchAutoCompletePipe
-    ,HighlightSearch
+    ,HighlightSearch, SeriesNameFilterComponent
   ],
   imports: [
     CommonModule,

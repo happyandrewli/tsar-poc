@@ -22,7 +22,8 @@ export class FiltersComponent implements OnInit {
     subtopic: new FormControl(),
     itemTypes: new FormControl(),
     dataType: new FormControl(),
-    sortBy: new FormControl()
+    sortBy: new FormControl(),
+    seriesNames: new FormControl()
   })
   constructor(private seriesService: SeriesService,
     private seriesQuery: SeriesQuery) { }

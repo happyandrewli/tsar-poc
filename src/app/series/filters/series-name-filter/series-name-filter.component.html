@@ -1,0 +1,43 @@
+<button nz-button nz-popover [nzPopoverContent]="seriesNamesTemplate" nzPopoverTrigger="click"
+    [nzGhost]="seriesNamesButtonStyle=='selected'? true : false"
+    [nzType]="seriesNamesButtonStyle=='selected'? 'primary' : 'default'" nzPopoverPlacement="bottomLeft"
+    [(nzVisible)]="visible" (nzVisibleChange)="close()">{{seriesNamesButtonText}}
+</button>
+
+<ng-template #seriesNamesTemplate>
+    <!-- <button nz-button nzType="primary" [nzSize]="'small'" nzShape="round" nzGhost style="margin-right: 5px">
+        <i nz-icon nzType="plus"></i>Upload
+    </button>
+    <button nz-button nzType="primary" [nzSize]="'small'" nzShape="round" nzGhost style="margin-right: 5px">
+        <i nz-icon nzType="download"></i>Download
+    </button>
+    <button nz-button nzType="primary" [nzSize]="'small'" nzShape="round" nzGhost>
+        <i nz-icon nzType="save"></i>Save
+    </button> -->
+    <nz-checkbox-wrapper style="width: 320px">
+        <div nz-row>
+            <div nz-col nzSpan="12" *ngFor="let name of seriesNames">
+                <label nz-checkbox nzValue="name.value" [(ngModel)]="name.checked">{{name.label}}</label>
+            </div>
+        </div>
+    </nz-checkbox-wrapper>
+    <!-- <nz-table #seriesNamesTable [nzData]="seriesNames" nzSize="small" [nzScroll]="{ y: '220px' }" [nzPageSize]="100"
+        [nzShowPagination]="false">
+        <thead>
+            <tr>
+                <th nzShowCheckbox></th>
+                <th nzWidth="270px">Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let name of seriesNamesTable.data">
+                <td nzShowCheckbox>
+                </td>
+                <td>{{name}}</td>
+            </tr>
+        </tbody>
+    </nz-table> -->
+    <nz-divider></nz-divider>
+    <button nz-button nzType="link" (click)="clear()">Clear</button>
+    <button nz-button nzType="primary" (click)="save()">Save</button>
+</ng-template>
